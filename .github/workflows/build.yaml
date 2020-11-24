@@ -1,0 +1,9 @@
+name: Build
+
+on: workflow_dispatch
+
+steps:
+  - name: Checkout the code
+    uses: actions/checkout@master
+  - name: Build the App
+    run: ./gradlew assembleDebug
