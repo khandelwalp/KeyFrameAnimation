@@ -8,9 +8,8 @@ jobs:
     name: Generate apk
     runs-on: ubuntu-latest
     
-    steps:
-        - name: Checkout the code
-        uses: actions/checkout@v2
+    steps:        
+        - uses: actions/checkout@v2
         
         - name: Build the app
         run: ./gradlew assembleDebug
