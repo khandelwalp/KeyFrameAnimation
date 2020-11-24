@@ -1,21 +1,19 @@
-name: Build
+name: Generate APK on Master
 
 on: workflow_dispatch
 
-jobs:
-  build:
+jobs:  
 
-    name: Generate apk
+  apk:
+    name: Generate APK
     runs-on: ubuntu-latest
-    
-    steps:        
-    - uses: actions/checkout@v2
-        
-    - name: Build the app
+
+    steps:
+      - uses: actions/checkout@v2      
+      - name: Build debug APK
         run: ./gradlew assembleDebug
-        
-    - name: Upload APK
-      uses: actions/upload-artifact@v2
-      with:
-        name: apks
-        path: app/build/outputs/apk/debug/
+      - name: Upload APK
+        uses: actions/upload-artifact@v2
+        with:
+          name: app
+          path: app/build/outputs/apk/debug/
